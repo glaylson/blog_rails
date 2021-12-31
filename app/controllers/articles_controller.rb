@@ -2,7 +2,9 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update show destroy]
 
   def index
-    @articles = Article.all
+    #@article = Article.page(params[:page]).per(2)
+    current_page = (params[:page] || 1).to_i
+    @articles = Article.order(created_at: :desc).page(current_page).per(2)
   end
 
   def show
@@ -38,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy   
+    @article.destroy
 
     redirect_to root_path
   end   
@@ -50,6 +52,7 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+    
   end  
   
 
