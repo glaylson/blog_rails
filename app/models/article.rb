@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+    belongs_to :category
     validates :title, presence: true,length: {minimum:3, maximum:20} 
     validates :body, presence: true, length: {minimum:5}
     
@@ -6,7 +7,7 @@ class Article < ApplicationRecord
 
     scope :desc_order, -> { order(created_at: :desc) }
 
-    scope :without_highlights, ->(ids) { where("id NOT IN (#{ids})") }
+    scope :without_highlights, ->(ids) { where("id NOT IN (#{ids})") if ids.present? }
     
     
 end
