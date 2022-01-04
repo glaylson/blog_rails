@@ -14,13 +14,13 @@ class ArticlesController < ApplicationController
     # @articles = Article.order(created_at: :desc)
    #                    .where('id NOT IN (?)',highlight_ids)
    #                    .page(current_page).per(2)
-    
+  #tewste    
   end
 
   def show
     
   end 
-
+ 
   def new
     @article = Article.new 
   end
