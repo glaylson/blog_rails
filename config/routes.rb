@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   root 'articles#index' #deixa rota como padrĂ£o 
     
 
