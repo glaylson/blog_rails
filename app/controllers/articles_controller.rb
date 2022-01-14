@@ -63,6 +63,7 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+    authorize @article
     
   end  
   

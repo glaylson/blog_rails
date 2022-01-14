@@ -1,0 +1,3 @@
+.exit not found, maybe you meant:
+
+Thor::Base::ClassMethods#exit_on_failure?
