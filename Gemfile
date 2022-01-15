@@ -35,7 +35,7 @@ end
 
 group :development do
   gem "letter_opener", "~> 1.7"
-
+  gem "bullet"
 
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
