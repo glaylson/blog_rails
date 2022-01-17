@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  root 'articles#index' #deixa rota como padrĂ£o 
+  #rota padrÃO
+  root 'articles#index'  
     
+  resources :articles do
+    resources :comments, only: %i[create destroy]
+  end
 
-  resources :articles 
   resources :categories, except: [:show]
-  #faz todo crud com os helpers abaixo sem a necessidade de criar manual  e muito mais rsrs
+  #criar rota manual
   #get '/articles', to: 'articles#index'
   #get '/articles/:id', to: 'articles#show'
 
